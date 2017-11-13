@@ -1,10 +1,14 @@
 class CharactersController < ApplicationController
     def new
+        @character = Character.new
     end
     def create
         @character = Character.new(article_params)
-        @character.save
-        redirect_to @character
+        if @character.save
+            redirect_to @character
+        else
+            render 'new'
+        end
     end
     def show
         @character = Character.find(params[:id])
