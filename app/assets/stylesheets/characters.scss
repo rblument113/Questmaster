@@ -11,6 +11,17 @@ body{
 .label{
     font-size: 25px;
     font-weight: bold;
-    color: #C83232;
+    color: #48C9B0;
     text-decoration: underline;
+}
+table{
+    border: 5px solid #48C9B0;
+}
+th, td{
+    border: 5px solid #48C9B0;
+    padding: 8px;
+    margin: 0px;
+}
+  a:link, a:visited{
+    color: #C83232;
 }
