@@ -4,6 +4,8 @@
 body{
     background-color: #FDEBD0;
     font-family: Helvetica;
+    font-size: 25px;
+    font-weight: bold;
 }
 h1{
     color: #C83232;
@@ -16,9 +18,14 @@ button{
     background-color: #C83232;
     color: #FDEBD0;
     font-family: Helvetica;
-    font-weight: bold;
-    font-size: 10px;
+    font-size: 20px;
     padding: 10px 15px;
     margin: 5px;
     cursor: pointer;
+}
+
+.label{
+    font-size: 30px;
+    color: #C83232;
+    text-decoration: underline;
 }
