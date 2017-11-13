@@ -7,11 +7,11 @@
     <h1>Dungeons & Dragons </h1>
 </header>
 
-<div>
-     <button input="button" type="submit">Create</button>
+<div class="button">
+     <%= link_to 'Characters List', controller: 'characters'%>
 </div>
-<div>
-    <button input="button" type="submit">Existing</button>
+<div class="button">
+    <%= link_to 'New Character', new_character_path%>
 </div>
 
 <footer>
