@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
         @character = Character.new
     end
     def create
-        @character = Character.new(article_params)
+        @character = Character.new(character_params)
         if @character.save
             redirect_to @character
         else

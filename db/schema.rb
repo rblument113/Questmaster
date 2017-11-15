@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115213358) do
+ActiveRecord::Schema.define(version: 20171115231934) do
+
+  create_table "character_feats_maps", force: :cascade do |t|
+    t.string "charname"
+    t.string "featname"
+    t.integer "character_id"
+    t.integer "feat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_feats_maps_on_character_id"
+    t.index ["feat_id"], name: "index_character_feats_maps_on_feat_id"
+  end
 
   create_table "characters", force: :cascade do |t|
     t.string "charname"
