@@ -12,6 +12,7 @@
         <td><%= character.charclass %></td>
         <td><%= character.level %></td>
         <td><%= link_to 'View', character_path(character)%></td>
+        <td><%= link_to 'Edit', edit_character_path(character)%></td>
     </tr>
     <% end %>
 </table>

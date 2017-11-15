@@ -1,0 +1,62 @@
+<h1>Edit Character</h1>
+
+<%= form_for :character, url: character_path(@character), method: :patch do |f| %>
+ 
+ <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@character.errors.count, "error") %> prohibited
+        this character from being saved:
+      </h2>
+      <ul>
+        <% @character.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<p>
+  <%= f.label :charname %><br>
+  <%= f.text_field :charname %>
+</p>
+<p>
+  <%= f.label :level %><br>
+  <%= f.text_field :level %>
+<p>
+    
+<p>
+  <span class="label">Class:</span>
+  <%= @character.charclass %>
+</p>
+<p><span class="label">Race:</span>
+<%= @character.race %>
+</p>
+<p><span class="label">Strength:</span>
+<%= @character.strength %>
+</p>
+<p><span class="label">Dexterity:</span>
+<%= @character.dexterity %>
+</p>
+<p><span class="label">Constitution:</span>
+<%= @character.constitution %>
+</p>
+<p><span class="label">Wisdom:</span>
+<%= @character.wisdom %>
+</p>
+<p><span class="label">Intelligence:</span>
+<%= @character.intelligence %>
+</p>
+<p><span class="label">Charisma:</span>
+<%= @character.charisma %>
+</p>
+
+<p>
+  <%= f.submit %>  
+</p>
+
+<p>
+  <%= link_to 'Back', controller:'welcome'%>
+</p>
+
+<% end %>

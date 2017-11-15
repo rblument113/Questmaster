@@ -16,9 +16,20 @@ class CharactersController < ApplicationController
     def index
         @characters = Character.all
     end
+    def edit
+        @character = Character.find(params[:id])
+    end
+    def update
+        @character = Character.find(params[:id])
+        if @character.update(character_params)
+            redirect_to @character
+        else
+            render 'edit'
+        end
+    end
 end
 
 private
-    def article_params
+    def character_params
         params.require(:character).permit(:charname, :level, :charclass, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :race)
     end
