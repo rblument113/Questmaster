@@ -27,6 +27,11 @@ class CharactersController < ApplicationController
             render 'edit'
         end
     end
+    def destroy
+        @character = Character.find(params[:id])
+        @character.destroy
+        redirect_to characters_path
+    end
 end
 
 private

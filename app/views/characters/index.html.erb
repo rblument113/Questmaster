@@ -13,6 +13,7 @@
         <td><%= character.level %></td>
         <td><%= link_to 'View', character_path(character)%></td>
         <td><%= link_to 'Edit', edit_character_path(character)%></td>
+        <td><%=link_to 'Kill', character_path(character), method: :delete, data: { confirm: "Are you sure you wish to kill off this character?"} %></td>
     </tr>
     <% end %>
 </table>
