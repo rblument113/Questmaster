@@ -1,0 +1,3 @@
+class FeatsController < ApplicationController
+    
+end
