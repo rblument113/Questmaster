@@ -32,9 +32,30 @@
 
 <div></div>
 
-<h2>Feats:</h2>
-
+<h2>Feats-</h2>
+<% @character.feats.each do |feat|%>
+    <p><span class="label">Name:</span>
+    <%= feat.featname %>
+    </p>
+    <p><span class="label">Level Required:</span>
+    <%= feat.level %>
+    </p>
+<% end %>
 <div></div>
+<h2>Add a Feat-</h2>
+<%= form_for([@character, @character.feats.build]) do |f| %>
+    <p>
+    <%= f.label :featname%>
+    <%= f.text_field :featname%>
+    </p>
+    <p>
+    <%= f.label :level%>
+    <%= f.text_field :level%>
+    </p>
+    <p>
+    <%= f.submit%>
+    </p>
+<% end %>
 
 <p>
     <%= link_to 'Back', controller:'characters'%>
