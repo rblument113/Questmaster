@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-    has_many :character_feats_maps
+    has_many :feats
     validates :charname, presence: true, length: { minimum: 2 }
     validates :level, presence: true, numericality: { greater_than: 0, less_than: 21 }
     validates :strength, presence: true, numericality: { greater_than: 0, less_than: 21 }
