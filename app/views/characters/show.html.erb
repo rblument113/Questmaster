@@ -12,22 +12,34 @@
 <%= @character.charclass %>
 </p>
 <p><span class="label">Strength:</span>
-<%= @character.strength %>
+<%= @character.strength %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.strength-10)/2).truncate %>
 </p>
 <p><span class="label">Dexterity:</span>
-<%= @character.dexterity %>
+<%= @character.dexterity %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.dexterity-10)/2).truncate %>
 </p>
 <p><span class="label">Constitution:</span>
-<%= @character.constitution %>
+<%= @character.constitution %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.constitution-10)/2).truncate %>
 </p>
 <p><span class="label">Wisdom:</span>
-<%= @character.wisdom %>
+<%= @character.wisdom %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.wisdom-10)/2).truncate %>
 </p>
 <p><span class="label">Intelligence:</span>
-<%= @character.intelligence %>
+<%= @character.intelligence %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.intelligence-10)/2).truncate %>
 </p>
 <p><span class="label">Charisma:</span>
-<%= @character.charisma %>
+<%= @character.charisma %><br>
+<span class="label">Modifier:</span>
+<%= ((@character.charisma-10)/2).truncate %>
 </p>
 
 <div></div>
