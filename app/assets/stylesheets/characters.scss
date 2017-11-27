@@ -7,8 +7,7 @@ body{
     font-size: 25px;
     font-weight: bold;
 }
-
-.label{
+input[type=label]{
     font-size: 20px;
     font-weight: bold;
     color: #983C57;
@@ -27,8 +26,39 @@ th, td{
 }
 h2{
     color: #48C9B0;
-    font-size: 20px;
+    font-size: 30px;
 }
 .floatRight{
     float: right;
+}
+.floatLeft{
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    #big{
+        font-size: 30px;
+        font-weight: bold;
+        color: #983C57;
+        text-decoration: underline;
+    }
+    #small{
+        font-size: 20px;
+    }
+}
+input[type=text], input[type=select]{
+    width: 25%;
+    padding: 10px 5px;
+    background-color: #983C57;
+    color: #FDEBD0;
+    font-size: 15px;
+    
+}
+input[type=button], input[type=submit]{
+    background-color: #C83232;
+    color: #FDEBD0;
+    font-family: Helvetica;
+    font-size: 15px;
+    margin: 5px;
+    cursor: pointer;
+    padding: 7px 8px 7px 8px;
 }
