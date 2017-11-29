@@ -1,12 +1,12 @@
-Feature: Navigate from the list of characters page to the homepage
+Feature: The save character button is present on the new character page
   
   As a player
-  So that I can easily return to the previous page
-  I want to navigate to the homepage
+  So that I can easily save my new character
+  I click the save character button
   
-Scenario: As a player I want to be able to navigate from the list of characters page to the homepage
+Scenario: As a player I want to be able to navigate from the homepage to the new character page
   Given I am on the homepage
-  When I click on the "Characters List" link
-  Then I should be on the "List of Characters" page
-  When I click on the "Back to Home" link
-  Then I should be on the homepage
+  When I click on the "New Character" link
+  Then I should be on the "New Character" page
+  And I should see the "Save Character" button
+  Then I click on the "Save Character" button

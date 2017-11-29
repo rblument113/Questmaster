@@ -42,11 +42,45 @@
     <span id="small">Modifier:</span>
     <%= ((@character.charisma-10)/2).truncate %>
 </p>
-
+<p><span id="big">Health Points:</span>
+<%if @character.charclass == "barbarian"%>
+    <%= (12+((@character.constitution-10)/2).truncate+((7+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "fighter"%>
+    <%= (10+((@character.constitution-10)/2).truncate+((6+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "bard"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "cleric"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "druid"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "monk"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "paladin"%>
+    <%= (10+((@character.constitution-10)/2).truncate+((6+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "ranger"%>
+    <%= (10+((@character.constitution-10)/2).truncate+((6+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "rogue"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "sorcerer"%>
+    <%= (6+((@character.constitution-10)/2).truncate+((4+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "warlock"%>
+    <%= (8+((@character.constitution-10)/2).truncate+((5+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<%elsif @character.charclass == "wizard"%>
+    <%= (6+((@character.constitution-10)/2).truncate+((4+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
+<% else %>
+<p>Class Not Found</p>
+<% end %>
+</p>
 <p></p>
 
+<p>
+    <span class="button"><%= link_to 'Back', controller:'characters'%></span>
+</p>
+</div>
+<p></p>
+<div class="floatRight">
 <p><span id="big">Languages</span>
-<% if @character.race = "Dragonborn"%>
+<% if @character.race == "dragonborn"%>
 <ul>
     <li>Common</li>
     <li>Draconic</li>
@@ -82,7 +116,7 @@
     <li>Elivsh</li>
     <li>(One Extra Language)</li>
 </ul>
-<% elsif @character.race == "halg-orc"%>
+<% elsif @character.race == "half-orc"%>
 <ul>
     <li>Common</li>
     <li>Orc</li>
@@ -96,7 +130,7 @@
 <p>Race not found.</p>
 <%end%>
 
-<p><span id="big">Equipment</p>
+<p><span id="big">Equipment</span>
 <%if @character.charclass == "barbarian"%>
 <ul>
     <li>(a) A Greataxe or (b) Any Martial Melee Weapon</li>
@@ -120,7 +154,7 @@
     <li>Leather Armor</li>
     <li>A Dagger</li>
 </ul>
-<%elsif @character.charclass == "Cleric"%>
+<%elsif @character.charclass == "cleric"%>
 <ul>
     <li>(a) A Mace or (b) A Warhammer </li>
     <li>(a) Scale Mail or (b) Leather Armor or (c) Chain Mail </li>
@@ -129,7 +163,7 @@
     <li> Sheild</li>
     <li> Holy Symbol</li>
 </ul>
-<%elsif @character.charclass == "Druid"%>
+<%elsif @character.charclass == "druid"%>
 <ul>
     <li>(a) Wooden Sheild or (b) Any Simple Weapon</li>
     <li>(a) Scimitar or (b) Any Simple Meele Weapon</li>
@@ -137,13 +171,13 @@
     <li> Explorer's Pack</li>
     <li> A Druidic Focus</li>
 </ul>
-<%elsif @character.charclass == "Monk"%>
+<%elsif @character.charclass == "monk"%>
 <ul>
     <li>(a) A Shortsword or (b) Any Simple Weapon</li>
     <li>(a) Dungeouneer's Pack or (b) Explorer's Pack</li>
     <li> Ten Darts</li>
 </ul>
-<%elsif @character.charclass == "Paladin"%>
+<%elsif @character.charclass == "paladin"%>
 <ul>
     <li>(a) Martial Weapon and a Sheild or (b) Two Martial Weapons</li>
     <li>(a) Five Javelins or (b) Any Simple Meelee Weapon</li>
@@ -152,7 +186,7 @@
     <li> Holy Symbol</li>
 </ul>
 
-<%elsif @character.charclass == "Ranger"%>
+<%elsif @character.charclass == "ranger"%>
 <ul>
     <li>(a) Scale Mail or (b) Leather Armor</li>
     <li>(a) Two Short Swords or (b) Two Simple Melee Weapons</li>
@@ -160,7 +194,7 @@
     <li>Longbow and 20 Arrows</li>
 </ul>
 
-<%elsif @character.charclass == "Rogue"%>
+<%elsif @character.charclass == "rogue"%>
 <ul>
     <li>(a) Rapier or (b) Shortsword</li>
     <li>(a) Shortbow and Quiver of 20 Arrows or (b) A Shortsword</li>
@@ -170,30 +204,38 @@
     <li>Thieves' Tools</li>
 </ul>
 
-<%elsif @character.charclass == "Sorcerer"%>
+<%elsif @character.charclass == "sorcerer"%>
 <ul>
     <li>(a) Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
     <li>(a) Component Pouch or (b) Arcane Focus</li>
     <li>(a) Dungeoneer's Pack or (b) Explorer's Pack</li>
-    <li> Two Daggers</li>
+    <li>Two Daggers</li>
 </ul>
 
-<%elsif @character.charclass == ""%>
+<%elsif @character.charclass == "warlock"%>
 <ul>
-    <li>(a)(b)</li>
-    <li>(a)(b)</li>
-    <li>(a)(b)</li>
-    <li>(a)(b)</li>
-    <li></li>
-    <li></li>
+    <li>(a) Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a) Component Pouch or (b) Arcane Focus</li>
+    <li>(a) Scholar's Pack or (b) Dungeoneer's Pack</li>
+    <li>Leather Armor</li>
+    <li>Any Simple Weapon</li>
+    <li>Two Daggers</li>
 </ul>
-    
+
+<%elsif @character.charclass == "wizard"%>
+<ul>
+    <li>(a) Quarter Staff or (b) A Dagger</li>
+    <li>(a) Component Pouch or (b) Arcane Focus</li>
+    <li>(a) Scholar's Pack or (b) Explorer's Pack</li>
+    <li>Spellbook</li>
+</ul>
+<% else %>
+<p>Class Not Found</p>
+<% end %>
 </p>
-<p>
-    <span class="button"><%= link_to 'Back', controller:'characters'%></span>
-</p>
-</div>
-<div class="floatRight">
+
+
+
 <h2>Feats-</h2>
 <% @character.feats.each do |feat|%>
     <p><span id="small">Name:</span>
