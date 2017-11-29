@@ -27,7 +27,7 @@
     
 <p>
   <%= f.label :class %><br>  
-  <%= f.select :charclass, [['Fighter', 'fighter'],['Barbarian', 'barbarian']] %>
+  <%= f.select :charclass, [['Barbarian', 'barbarian'], ['Bard','bard'], ['Cleric','cleric'], ['Druid','druid'], ['Fighter', 'fighter'], ['Monk','monk'], ['Paladin','paladin'], ['Ranger','ranger'], ['Rogue','rogue'], ['Sorcerer','sorcerer'], ['',''],] %>
 </p>
 
 <p>
@@ -70,7 +70,7 @@
 </p>
 
 <p>
-  <%= link_to 'Back', controller:'welcome'%>
+  <span class="button"><%= link_to 'Back', controller:'welcome'%></span>
 </p>
 
 <% end %>

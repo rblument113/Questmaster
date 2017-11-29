@@ -1,71 +1,219 @@
 <h1>View Character</h1>
 <div class="floatLeft">
-<p><span>Name:</span>
+<p><span id="big">Name:</span>
     <%= @character.charname %>
 </p>
-<p><span>Race:</span>
+<p><span id="big">Race:</span>
     <%= @character.race %>
 </p>
-<p><span>Level:</span>
+<p><span id="big">Level:</span>
     <%= @character.level %>
 </p>
-<p><span>Class:</span>
+<p><span id="big">Class:</span>
     <%= @character.charclass %>
 </p>
-<p><span>Strength:</span>
+<p><span id="big">Strength:</span>
     <%= @character.strength %><br>
-    <span class="label">Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.strength-10)/2).truncate %>
 </p>
-<p><span>Dexterity:</span>
+<p><span id="big">Dexterity:</span>
     <%= @character.dexterity %><br>
-    <span class="label">Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.dexterity-10)/2).truncate %>
 </p>
-<p><span>Constitution:</span>
+<p><span id="big">Constitution:</span>
     <%= @character.constitution %><br>
-    <span>Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.constitution-10)/2).truncate %>
 </p>
-<p><spa>Wisdom:</span>
+<p><span id="big">Wisdom:</span>
     <%= @character.wisdom %><br>
-    <span class="label">Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.wisdom-10)/2).truncate %>
 </p>
-<p><span>Intelligence:</span>
+<p><span id="big">Intelligence:</span>
     <%= @character.intelligence %><br>
-    <span class="label">Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.intelligence-10)/2).truncate %>
 </p>
-<p><span>Charisma:</span>
+<p><span id="big">Charisma:</span>
     <%= @character.charisma %><br>
-    <span>Modifier:</span>
+    <span id="small">Modifier:</span>
     <%= ((@character.charisma-10)/2).truncate %>
 </p>
 
 <p></p>
+
+<p><span id="big">Languages</span>
+<% if @character.race = "Dragonborn"%>
+<ul>
+    <li>Common</li>
+    <li>Draconic</li>
+</ul>
+<% elsif @character.race == "dwarf"%>
+<ul>
+    <li>Common</li>
+    <li>Dwarfish</li>
+</ul>
+<% elsif @character.race == "elf"%>
+<ul>
+    <li>Common</li>
+    <li>Elivsh</li>
+</ul>
+<% elsif @character.race == "halfling"%>
+<ul>
+    <li>Common</li>
+    <li>Halfling</li>
+</ul>
+<% elsif @character.race == "human"%>
+<ul>
+    <li>Common</li>
+    <li>(One Extra Language)</li>
+</ul>
+<% elsif @character.race == "gnome"%>
+<ul>
+    <li>Common</li>
+    <li>Gnomish</li>
+</ul>
+<% elsif @character.race == "half-elf"%>
+<ul>
+    <li>Common</li>
+    <li>Elivsh</li>
+    <li>(One Extra Language)</li>
+</ul>
+<% elsif @character.race == "halg-orc"%>
+<ul>
+    <li>Common</li>
+    <li>Orc</li>
+</ul>
+<% elsif @character.race == "tiefling"%>
+<ul>
+    <li>Common</li>
+    <li>Infernal</li>
+</ul>
+<% else%>
+<p>Race not found.</p>
+<%end%>
+
+<p><span id="big">Equipment</p>
+<%if @character.charclass == "barbarian"%>
+<ul>
+    <li>(a) A Greataxe or (b) Any Martial Melee Weapon</li>
+    <li>(a) Two Handaxes or (b) Any Simple Weapon</li>
+    <li>An Explorer's Pack</li>
+    <li>Four Javelins</li>
+</ul>
+<%elsif @character.charclass == "fighter"%>
+<ul>
+    <li>(a) Chain Mail or (b) Leather Armor</li>
+    <li>A Longbow and 20 Arrows</li>
+    <li>(a) A Martial Weapon and a Sheild or (b) Two Martial Weapons</li>
+    <li>(a) A Light Crossbow and 20 Bolts or (b) Two Handaxes</li>
+    <li>(a) Dungeoneer's Pack or (b) Explorer's Pack</li>
+</ul>
+<%elsif @character.charclass == "bard"%>
+<ul>
+    <li>(a) Rapier or (b) Longsword or (c) Any Simple Weapon</li>
+    <li>(a) Diplomat's Pack or (b) Entertainer's Pack</li>
+    <li>(a) Lute or (b) Any other musical instrument</li>
+    <li>Leather Armor</li>
+    <li>A Dagger</li>
+</ul>
+<%elsif @character.charclass == "Cleric"%>
+<ul>
+    <li>(a) A Mace or (b) A Warhammer </li>
+    <li>(a) Scale Mail or (b) Leather Armor or (c) Chain Mail </li>
+    <li>(a) A Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a) Priest's Pack or (b) Explorer's Pack </li>
+    <li> Sheild</li>
+    <li> Holy Symbol</li>
+</ul>
+<%elsif @character.charclass == "Druid"%>
+<ul>
+    <li>(a) Wooden Sheild or (b) Any Simple Weapon</li>
+    <li>(a) Scimitar or (b) Any Simple Meele Weapon</li>
+    <li> Leather Armor</li>
+    <li> Explorer's Pack</li>
+    <li> A Druidic Focus</li>
+</ul>
+<%elsif @character.charclass == "Monk"%>
+<ul>
+    <li>(a) A Shortsword or (b) Any Simple Weapon</li>
+    <li>(a) Dungeouneer's Pack or (b) Explorer's Pack</li>
+    <li> Ten Darts</li>
+</ul>
+<%elsif @character.charclass == "Paladin"%>
+<ul>
+    <li>(a) Martial Weapon and a Sheild or (b) Two Martial Weapons</li>
+    <li>(a) Five Javelins or (b) Any Simple Meelee Weapon</li>
+    <li>(a) Priest's Pack or (b) Explorer's Pack</li>
+    <li> Chain Mail</li>
+    <li> Holy Symbol</li>
+</ul>
+
+<%elsif @character.charclass == "Ranger"%>
+<ul>
+    <li>(a) Scale Mail or (b) Leather Armor</li>
+    <li>(a) Two Short Swords or (b) Two Simple Melee Weapons</li>
+    <li>(a) Dungeoneer's Pack or (b) Explorer's Pack</li>
+    <li>Longbow and 20 Arrows</li>
+</ul>
+
+<%elsif @character.charclass == "Rogue"%>
+<ul>
+    <li>(a) Rapier or (b) Shortsword</li>
+    <li>(a) Shortbow and Quiver of 20 Arrows or (b) A Shortsword</li>
+    <li>(a) Burgler's Pack or (b) Dungeoneer's Pack or (c) Explorer's Pack</li>
+    <li>Leather Armor</li>
+    <li>Two Daggers</li>
+    <li>Thieves' Tools</li>
+</ul>
+
+<%elsif @character.charclass == "Sorcerer"%>
+<ul>
+    <li>(a) Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a)(b)</li>
+    <li>(a)(b)</li>
+    <li>(a)(b)</li>
+    <li></li>
+    <li></li>
+</ul>
+
+<%elsif @character.charclass == ""%>
+<ul>
+    <li>(a)(b)</li>
+    <li>(a)(b)</li>
+    <li>(a)(b)</li>
+    <li>(a)(b)</li>
+    <li></li>
+    <li></li>
+</ul>
+    
+</p>
 <p>
-    <%= link_to 'Back', controller:'characters'%>
+    <span class="button"><%= link_to 'Back', controller:'characters'%></span>
 </p>
 </div>
 <div class="floatRight">
 <h2>Feats-</h2>
 <% @character.feats.each do |feat|%>
-    <p><span class="label">Name:</span>
+    <p><span id="small">Name:</span>
     <%= feat.featname %>
     </p>
-    <p><span class="label">Level Required:</span>
+    <p><span id="small">Level Required:</span>
     <%= feat.level %>
     </p>
 <% end %>
 <div></div>
+
 <h2>Add a Feat-</h2>
 <%= form_for([@character, @character.feats.build]) do |f| %>
-    <p>
+    <p id="small">
     <%= f.label :featname%>
     <%= f.text_field :featname%>
     </p>
-    <p>
+    <p id="small">
     <%= f.label :level%>
     <%= f.text_field :level%>
     </p>

@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
-    background-color: #FDEBD0;
+    background-image: linear-gradient(to bottom right, #FDEBD0, #984F3C 60%);
+    background-size: 9500px;
     font-family: Helvetica;
     font-size: 25px;
     font-weight: bold;
@@ -17,16 +18,16 @@ h1{
 }
 h2{
     color: #48C9B0;
-    font-size: 20px;
+    font-size: 30px;
 }
 p{
-    color: #984F3C;
+    color: #7D3C98;
 }
 .button{
     background-color: #C83232;
     color: #FDEBD0;
     font-family: Helvetica;
-    font-size: 15px;
+    font-size: 20px;
     margin: 5px;
     cursor: pointer;
     padding: 7px 8px 7px 8px;
