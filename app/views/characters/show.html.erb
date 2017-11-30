@@ -1,4 +1,7 @@
-<h1>View Character</h1>
+<header>
+<h1><%= image_tag("5e_icon.png", :alt => "D&D") %>   View Character</h1>
+</header>
+
 <div class="floatLeft">
 <p><span id="big">Name:</span>
     <%= @character.charname %>
@@ -68,9 +71,25 @@
 <%elsif @character.charclass == "wizard"%>
     <%= (6+((@character.constitution-10)/2).truncate+((4+((@character.constitution-10)/2).truncate)*(@character.level-1))).truncate %>
 <% else %>
-<p>Class Not Found</p>
+<div>Class Not Found</div>
 <% end %>
 </p>
+<p><span id="big">Proficiency Bonus:</span>
+<%if @character.level >= 1 and @character.level < 5%>
+    <span>+2</span>
+<%elsif @character.level >= 5 and @character.level < 8%>
+    <span>+3</span>
+<%elsif @character.level >= 9 and @character.level < 13%>
+    <span>+4</span>
+<%elsif @character.level >= 13 and @character.level < 17%>
+    <span>+5</span>
+<%elsif @character.level >= 17 and @character.level < 21%>
+    <span>+6</span>
+<%else%>
+    <span>Level Not Found.</span>
+<%end%>
+</p>
+
 <p></p>
 
 <p>
@@ -78,7 +97,7 @@
 </p>
 </div>
 <p></p>
-<div class="floatRight">
+<div class="floatLeft">
 <p><span id="big">Languages</span>
 <% if @character.race == "dragonborn"%>
 <ul>
@@ -142,13 +161,16 @@
 <ul>
     <li>(a) Chain Mail or (b) Leather Armor</li>
     <li>A Longbow and 20 Arrows</li>
-    <li>(a) A Martial Weapon and a Sheild or (b) Two Martial Weapons</li>
-    <li>(a) A Light Crossbow and 20 Bolts or (b) Two Handaxes</li>
+    <li>(a) A Martial Weapon and a Sheild </li>
+    <li style="list-style-type:none">Or (b) Two Martial Weapons</li>
+    <li>(a) A Light Crossbow and 20 Bolts </li>
+    <li style="list-style-type:none">Or (b) Two Handaxes</li>
     <li>(a) Dungeoneer's Pack or (b) Explorer's Pack</li>
 </ul>
 <%elsif @character.charclass == "bard"%>
 <ul>
-    <li>(a) Rapier or (b) Longsword or (c) Any Simple Weapon</li>
+    <li>(a) Rapier or (b) Longsword </li>
+    <li style="list-style-type:none">Or (c) Any Simple Weapon</li>
     <li>(a) Diplomat's Pack or (b) Entertainer's Pack</li>
     <li>(a) Lute or (b) Any other musical instrument</li>
     <li>Leather Armor</li>
@@ -157,8 +179,10 @@
 <%elsif @character.charclass == "cleric"%>
 <ul>
     <li>(a) A Mace or (b) A Warhammer </li>
-    <li>(a) Scale Mail or (b) Leather Armor or (c) Chain Mail </li>
-    <li>(a) A Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a) Scale Mail or (b) Leather Armor </li>
+    <li style="list-style-type:none">Or (c) Chain Mail </li>
+    <li>(a) A Light Crossbow and 20 Bolts </li>
+    <li style="list-style-type:none">Or (b) Any Simple Weapon</li>
     <li>(a) Priest's Pack or (b) Explorer's Pack </li>
     <li> Sheild</li>
     <li> Holy Symbol</li>
@@ -179,7 +203,8 @@
 </ul>
 <%elsif @character.charclass == "paladin"%>
 <ul>
-    <li>(a) Martial Weapon and a Sheild or (b) Two Martial Weapons</li>
+    <li>(a) Martial Weapon and a Sheild </li>
+    <li style="list-style-type:none">Or (b) Two Martial Weapons</li>
     <li>(a) Five Javelins or (b) Any Simple Meelee Weapon</li>
     <li>(a) Priest's Pack or (b) Explorer's Pack</li>
     <li> Chain Mail</li>
@@ -197,8 +222,10 @@
 <%elsif @character.charclass == "rogue"%>
 <ul>
     <li>(a) Rapier or (b) Shortsword</li>
-    <li>(a) Shortbow and Quiver of 20 Arrows or (b) A Shortsword</li>
-    <li>(a) Burgler's Pack or (b) Dungeoneer's Pack or (c) Explorer's Pack</li>
+    <li>(a) Shortbow and Quiver of 20 Arrows </li>
+    <li style="list-style-type:none">Or (b) A Shortsword</li>
+    <li>(a) Burgler's Pack or (b) Dungeoneer's Pack </li>
+    <li style="list-style-type:none">Or (c) Explorer's Pack</li>
     <li>Leather Armor</li>
     <li>Two Daggers</li>
     <li>Thieves' Tools</li>
@@ -206,7 +233,8 @@
 
 <%elsif @character.charclass == "sorcerer"%>
 <ul>
-    <li>(a) Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a) Light Crossbow and 20 Bolts </li>
+    <li style="list-style-type:none">Or (b) Any Simple Weapon</li>
     <li>(a) Component Pouch or (b) Arcane Focus</li>
     <li>(a) Dungeoneer's Pack or (b) Explorer's Pack</li>
     <li>Two Daggers</li>
@@ -214,7 +242,8 @@
 
 <%elsif @character.charclass == "warlock"%>
 <ul>
-    <li>(a) Light Crossbow and 20 Bolts or (b) Any Simple Weapon</li>
+    <li>(a) Light Crossbow and 20 Bolts </li>
+    <li style="list-style-type:none">Or (b) Any Simple Weapon</li>
     <li>(a) Component Pouch or (b) Arcane Focus</li>
     <li>(a) Scholar's Pack or (b) Dungeoneer's Pack</li>
     <li>Leather Armor</li>
@@ -234,8 +263,313 @@
 <% end %>
 </p>
 
+<p><span id="big">Proficiencies</span>
+<%if @character.charclass == "barbarian"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+            <dd>Medium Armor</dd>
+            <dd>Shields</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Martial Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Strength</dd>
+            <dd>Constitution</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Animal Handling</dd>
+            <dd>Athletics</dd>
+            <dd>Intimidation</dd>
+            <dd>Nature</dd>
+            <dd>Perception</dd>
+            <dd>Survival</dd>
+    </dl>
+    
+<%elsif @character.charclass == "fighter"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>All Armor</dd>
+            <dd>Shields</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Martial Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Strength</dd>
+            <dd>Constitution</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Acrobatics</dd>
+            <dd>Animal Handling</dd>
+            <dd>Athletics</dd>
+            <dd>History</dd>
+            <dd>Insight</dd>
+            <dd>Intimidation</dd>
+            <dd>Perception</dd>
+            <dd>Survival</dd>
+    </dl>
+    
+<%elsif @character.charclass == "bard"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Hand Crossbows</dd>
+            <dd>Longswords</dd>
+            <dd>Rapier</dd>
+            <dd>Shortsword</dd>
+        <dt id="small">Tools:</dt>
+            <dd>Three musical instruments (your choice)</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Dexterity</dd>
+            <dd>Charisma</dd>
+        <dt id="small">Skills:</dt>
+            <dd>Choose any three</dd>
+    </dl>
+    
+<%elsif @character.charclass == "cleric"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+            <dd>Medium Armor</dd>
+            <dd>Shields</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Wisdom</dd>
+            <dd>Charisma</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>History</dd>
+            <dd>Insight</dd>
+            <dd>Medicine</dd>
+            <dd>Persuasion</dd>
+            <dd>Religion</dd>
+    </dl>
+    
+<%elsif @character.charclass == "druid"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+            <dd>Medium Armor</dd>
+            <dd>Shields</dd>
+            <dd>(No Metal!)</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Clubs</dd>
+            <dd>Daggers</dd>
+            <dd>Darts</dd>
+            <dd>Javelins</dd>
+            <dd>Maces</dd>
+            <dd>Quarterstaffs</dd>
+            <dd>Scimitars</dd>
+            <dd>Sickles</dd>
+            <dd>Slings</dd>
+            <dd>Spears</dd>
+        <dt id="small">Tools:</dt>
+            <dd>Herbalism Kit</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Intelligence</dd>
+            <dd>Wisdom</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Arcana</dd>
+            <dd>Animal Handling</dd>
+            <dd>Insight</dd>
+            <dd>Medicine</dd>
+            <dd>Nature</dd>
+            <dd>Perception</dd>
+            <dd>Religion</dd>
+            <dd>Survival</dd>
+    </dl>
+    
+<%elsif @character.charclass == "monk"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>None</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Shortsword</dd>
+        <dt id="small">Tools:</dt>
+            <dd>Choose one type of artisan's tools</dd>
+            <dd>Or One musical instrument</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Strength</dd>
+            <dd>Dexterity</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Acrobatics</dd>
+            <dd>Athletics</dd>
+            <dd>History</dd>
+            <dd>Insight</dd>
+            <dd>Religion</dd>
+            <dd>Stealth</dd>
+    </dl>
+    
+<%elsif @character.charclass == "paladin"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>All Armor</dd>
+            <dd>Shields</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Martial Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Wisdom</dd>
+            <dd>Charisma</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Athletics</dd>
+            <dd>Insight</dd>
+            <dd>Intimidation</dd>
+            <dd>Medicine</dd>
+            <dd>Persuasion</dd>
+            <dd>Religion</dd>
+    </dl>
+    
+<%elsif @character.charclass == "ranger"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+            <dd>Medium Armor</dd>
+            <dd>Shields</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Martial Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Strength</dd>
+            <dd>Dexterity</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose three of the Following:</u></dd>
+            <dd>Animal Handling</dd>
+            <dd>Athletics</dd>
+            <dd>Insight</dd>
+            <dd>Investigation</dd>
+            <dd>Nature</dd>
+            <dd>Perception</dd>
+            <dd>Stealth</dd>
+            <dd>Survival</dd>
+    </dl>
 
+<%elsif @character.charclass == "rogue"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+            <dd>Hand Crossbows</dd>
+            <dd>Longswords</dd>
+            <dd>Rapiers</dd>
+            <dd>Shortswords</dd>
+        <dt id="small">Tools:</dt>
+            <dd>Thieves' Tools</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Dexterity</dd>
+            <dd>Intelligence</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose four of the Following:</u></dd>
+            <dd>Acrobatics</dd>
+            <dd>Athletics</dd>
+            <dd>Deception</dd>
+            <dd>Insight</dd>
+            <dd>Intimidation</dd>
+            <dd>Investigation</dd>
+            <dd>Perception</dd>
+            <dd>Performance</dd>
+            <dd>Persuasion</dd>
+            <dd>Sleight of Hand</dd>
+            <dd>Stealth</dd>
+    </dl>
 
+<%elsif @character.charclass == "sorcerer"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>None</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Daggers</dd>
+            <dd>Darts</dd>
+            <dd>Slings</dd>
+            <dd>Quarterstaffs</dd>
+            <dd>Light Crossbow</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Constitution</dd>
+            <dd>Charisma</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Arcane</dd>
+            <dd>Deception</dd>
+            <dd>Insight</dd>
+            <dd>Intimidation</dd>
+            <dd>Persuasion</dd>
+            <dd>Religion</dd>
+    </dl>
+
+<%elsif @character.charclass == "warlock"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>Light Armor</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Simple Weapons</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Wisdom</dd>
+            <dd>Charisma</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Arcana</dd>
+            <dd>Deception</dd>
+            <dd>History</dd>
+            <dd>Intimidation</dd>
+            <dd>Investigation</dd>
+            <dd>Nature</dd>
+            <dd>Religion</dd>
+    </dl>
+
+<%elsif @character.charclass == "wizard"%>
+    <dl>
+        <dt id="small">Armor:</dt>
+            <dd>None</dd>
+        <dt id="small">Weapons:</dt>
+            <dd>Daggers</dd>
+            <dd>Darts</dd>
+            <dd>Slings</dd>
+            <dd>Quarterstaffs</dd>
+            <dd>Light Crossbows</dd>
+        <dt id="small">Tools:</dt>
+            <dd>None</dd>
+        <dt id="small">Saving Throws:</dt>
+            <dd>Intelligence</dd>
+            <dd>Wisdom</dd>
+        <dt id="small">Skills:</dt>
+            <dd><u>Choose two of the Following:</u></dd>
+            <dd>Arcane</dd>
+            <dd>History</dd>
+            <dd>Insight</dd>
+            <dd>Investigation</dd>
+            <dd>Medicine</dd>
+            <dd>Religion</dd>
+    </dl>
+    
+<% else %>
+<p>Class Not Found</p>
+<% end %>
+</p>
+</div>
+<p></p>
+<div class="floatRight">
 <h2>Feats-</h2>
 <% @character.feats.each do |feat|%>
     <p><span id="small">Name:</span>

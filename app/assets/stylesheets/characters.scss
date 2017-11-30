@@ -4,7 +4,7 @@
 body{
     background-image: linear-gradient(to bottom right, #FDEBD0, #984F3C 50%);
     font-family: Helvetica;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 input[type=label]{
@@ -28,16 +28,17 @@ th, td{
 .floatRight{
     float: right;
     margin: 20px;
-    padding: 40px;
+    padding: 20px;
     color: #7D3C98;
+    border: 5px solid #48C9B0;
     #big{
-        font-size: 30px;
+        font-size: 32px;
         font-weight: bold;
         color: #983C57;
         text-decoration: underline;
     }
     #small{
-        font-size: 20px;
+        font-size: 23px;
         font-weight: bold;
         color: #983C57;
         text-decoration: underline;
@@ -51,19 +52,20 @@ th, td{
         width: 100%;
     }
 }
+
 .floatLeft{
     float: left;
     padding: 10px;
     margin: 10px;
     color: #7D3C98;
     #big{
-        font-size: 30px;
+        font-size: 32px;
         font-weight: bold;
         color: #983C57;
         text-decoration: underline;
     }
     #small{
-        font-size: 20px;
+        font-size: 23px;
         font-weight: bold;
         color: #983C57;
         text-decoration: underline;
