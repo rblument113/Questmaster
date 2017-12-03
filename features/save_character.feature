@@ -2,7 +2,7 @@ Feature: The save character button is present on the new character page
   
   As a player
   So that I can easily save my new character
-  I click the save character button
+  I want to be able to click the save character button
   
 Scenario: As a player I want to be able to navigate from the homepage to the new character page
   Given I am on the homepage

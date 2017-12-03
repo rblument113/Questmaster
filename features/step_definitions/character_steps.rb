@@ -21,3 +21,11 @@ end
 Then(/^I click on the "([^"]*)" button$/) do |button_name|
    click_button(button_name)
 end
+
+Then(/^I should see the "([^"]*)" link$/) do |link_name|
+  expect(page).to have_link(link_name)
+end
+
+Then("I should be on the homepage") do
+  visit root_path
+end
