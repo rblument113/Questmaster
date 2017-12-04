@@ -1,6 +1,6 @@
 class SpellsController < ApplicationController
     def create
-       @character = Carachter.find(params[:character_id])
+       @character = Character.find(params[:character_id])
        @spell = @character.spells.create(spell_params)
        redirect_to character_path(@character)
     end

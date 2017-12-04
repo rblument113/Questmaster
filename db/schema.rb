@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171204203815) do
     t.integer "level"
     t.string "castingtime"
     t.string "range"
-    t.integer "components"
+    t.string "components"
     t.string "duration"
     t.integer "character_id"
     t.datetime "created_at", null: false

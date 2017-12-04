@@ -1,8 +1,8 @@
 <header>
-<<%= image_tag("5e_icon.png", :alt => "D&D") %><h1>   View Character</h1>
+<h1><%= image_tag("5e_icon.png", :alt => "D&D") %>  View Character</h1>
 </header>
 
-<div class="floatLeft">
+<div class="floatLeft" style="max-width:60%;height:auto;"">
 <p><span id="big">Name:</span>
     <%= @character.charname %>
 </p>
@@ -90,14 +90,14 @@
 <%end%>
 </p>
 
-<p></p>
-
 <p>
     <span class="button"><%= link_to 'Back', controller:'characters'%></span>
 </p>
 </div>
+
 <p></p>
-<div class="floatLeft">
+
+<div class="floatLeft" style="max-width: 20%;height:auto;">
 <p><span id="big">Languages</span>
 <% if @character.race == "dragonborn"%>
 <ul>
@@ -595,4 +595,65 @@
     <%= f.submit%>
     </p>
 <% end %>
+</div>
+
+<div class="floatRight">
+    <h2>Spells-</h2>
+    <% @character.spells.each do |s| %>
+    <p>
+        <span id="small">Name:</span>
+        <%= s.name %>
+    </p>
+    <p>
+        <span id="small">Level:</span>
+        <%= s.level %>
+    </p>
+    <p>
+        <span id="small">Cast time:</span>
+        <%= s.castingtime %>
+    </p>
+    <p>
+        <span id="small">Range:</span>
+        <%= s.range %>
+    </p>
+    <p>
+        <span id="small">Components:</span
+        <%= s.components %>
+    </p>
+    <p>
+        <span id="small">Duration:</span>
+        <%= s.duration %>
+    </p>
+    <% end %>
+    
+    <h2>Add a spell-</h2>
+    <%= form_for([@character, @character.spells.build]) do |s| %>
+    <p id="small">
+    <%= s.label :name%>
+    <%= s.text_field :name%>
+    </p>
+    <p id="small">
+    <%= s.label :level%>
+    <%= s.text_field :level%>
+    </p>
+    <p id="small">
+    <%= s.label :castingtime%>
+    <%= s.text_field :castingtime%>
+    </p>
+    <p id="small">
+    <%= s.label :range%>
+    <%= s.text_field :range%>
+    </p>
+    <p id="small">
+    <%= s.label :components%>
+    <%= s.text_field :components%>
+    </p>
+    <p id="small">
+    <%= s.label :duration%>
+    <%= s.text_field :duration%>
+    </p>
+    <p>
+    <%= s.submit%>
+    </p>
+    <% end %>
 </div>

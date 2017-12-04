@@ -5,7 +5,7 @@ class CreateSpells < ActiveRecord::Migration[5.1]
       t.integer :level
       t.string :castingtime
       t.string :range
-      t.integer :components
+      t.string :components
       t.string :duration
       t.references :character, foreign_key: true
 
