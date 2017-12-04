@@ -2,7 +2,7 @@
 <h1><%= image_tag("5e_icon.png", :alt => "D&D") %>  View Character</h1>
 </header>
 
-<div class="floatLeft" style="max-width:60%;height:auto;"">
+<div class="floatLeft" style="max-width:20%;height:auto;">
 <p><span id="big">Name:</span>
     <%= @character.charname %>
 </p>
@@ -97,7 +97,7 @@
 
 <p></p>
 
-<div class="floatLeft" style="max-width: 20%;height:auto;">
+<div class="floatLeft" style="max-width:30%;height:auto;">
 <p><span id="big">Languages</span>
 <% if @character.race == "dragonborn"%>
 <ul>
@@ -569,7 +569,7 @@
 </p>
 </div>
 <p></p>
-<div class="floatRight">
+<div class="floatRight" style="max-width:25%;height:auto;">
 <h2>Feats-</h2>
 <% @character.feats.each do |feat|%>
     <p><span id="small">Name:</span>
@@ -597,7 +597,7 @@
 <% end %>
 </div>
 
-<div class="floatRight">
+<div class="floatRight" style="max-width:25%;height:auto;">
     <h2>Spells-</h2>
     <% @character.spells.each do |s| %>
     <p>
@@ -617,7 +617,7 @@
         <%= s.range %>
     </p>
     <p>
-        <span id="small">Components:</span
+        <span id="small">Components:</span>
         <%= s.components %>
     </p>
     <p>
