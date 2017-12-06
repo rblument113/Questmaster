@@ -16,10 +16,17 @@ h1{
 .TitlePage{
     font-size: 50px;
 }
+
 h2{
     color: #48C9B0;
     font-size: 30px;
+    .tabOver{
+        font-family: Helvetica;
+        padding-left : 50px;
+    }
 }
+
+
 p{
     color: #7D3C98;
 }
