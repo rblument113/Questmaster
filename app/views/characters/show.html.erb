@@ -577,6 +577,7 @@
     </p>
     <p><span id="small">Level Required:</span>
     <%= feat.level %>
+    <%= link_to 'Remove Feat', [feat.character, feat], method: :delete, data: { confirm: 'Are you sure' } %>
     </p>
 <% end %>
 <div></div>
@@ -624,6 +625,7 @@
         <span id="small">Duration:</span>
         <%= s.duration %>
     </p>
+    <%= link_to 'Remove Spell', [s.character, s], method: :delete, data: { confirm: 'Are you sure' } %>
     <% end %>
     
     <h2>Add a spell-</h2>
